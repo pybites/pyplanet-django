@@ -10,29 +10,61 @@ The Django front-end shows the articles in a table:
 
 ![article home](assets/article-home.png)
 
-Upon clicking each link it shows the parsed data and links to Tweet the article via Twitter's [Web Intents](https://dev.twitter.com/web/intents) (generated outgoing link) and update the status of the item: shared or skipped:
+Upon clicking each link it shows the parsed data and action buttons:
 
 ![article detail](assets/article-detail.png)
 
-## try it yourself
+The "Tweet this" button uses Twitter's [Web Intents](https://dev.twitter.com/web/intents) (redirect to generated link) 
 
-	$ git clone git@github.com:pybites/pyplanet-django.git
-	$ python3 -m venv venv && source venv/bin/activate
-	$ pip install -r requirements.txt
+![twitter-intent](assets/twitter-intent.png)
 
-Load Planet Python articles in:
+You can update the article as "Shared" or "Skipped" which is updated in the DB:
 
-![import job](assets/import-job.png)
+![save state](assets/save-state.png)
 
-(this was my 2nd run, I already had some items in the DB)
+## try it yourself!
 
-It uses an SQLite table to store the articles and status:
+1. clone this repo:
 
-![db table](assets/db-table.png)
+		$ git clone git@github.com:pybites/pyplanet-django.git
+
+
+2. make venv and install dependencies:
+
+		$ python3 -m venv venv && source venv/bin/activate
+		(venv) $ pip install -r requirements.txt
+
+3. create DB tables (admin stuff to be added):
+
+		(venv) $ python manage.py migrate
+		Operations to perform:
+		Apply all migrations: admin, articles, auth, contenttypes, sessions
+		Running migrations:
+		Applying contenttypes.0001_initial... OK
+		...
+		...
+		Applying sessions.0001_initial... OK
+
+4. run the [management command](https://docs.djangoproject.com/en/dev/howto/custom-management-commands/) to import Planet Python's feed:
+
+		(venv) $ python manage.py importfeed
+		Article id 1 created
+		Article id 2 created
+		...
+		...
+		Article id 25 created
+		25 articles added
+
+5. run local server: 
+
+		(venv) $ python manage.py runserver
 
 ## TODOs (17/07/2017)
 
 * Deploy to Heroku
-* Automate `importfeed` [management command](https://docs.djangoproject.com/en/dev/howto/custom-management-commands/)
+
+* Add `importfeed` command to a cronjob
+
 * Add user authentication and tracking who edits what (already field in the model)
+
 * Integrate Twitter API so green "Mark Shared" button can be made redundant

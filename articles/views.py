@@ -10,6 +10,7 @@ OPEN = 0
 SKIPPED = 1
 SHARED = 2
 MAX_ENTRIES = 100
+PYBITES = 'pybit.es'
 TWITTER_INTENT = 'https://twitter.com/intent/tweet?'
 
 
@@ -26,7 +27,11 @@ def index(request):
 def detail(request, article_id):
     article = get_object_or_404(Article, pk=article_id)
 
-    payload = {'text': article.title, 'url': article.url}
+    article_text = article.title
+    if PYBITES in article.url:
+        article_text = 'New PyBites Article: ' + article_text
+
+    payload = {'text': article_text, 'url': article.url}
     tweet_url = TWITTER_INTENT + urlencode(payload, quote_via=quote_plus)
 
     return render(request, 'articles/detail.html', 

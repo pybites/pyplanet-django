@@ -59,9 +59,11 @@ You can update the article as "Shared" or "Skipped" which is updated in the DB:
 
 		(venv) $ python manage.py runserver
 
-## TODOs (17/07/2017)
+6. browse to [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
-* Deploy to Heroku
+## TODOs
+
+* Deploy to Heroku or PythonAnywhere
 
 * Add `importfeed` command to a cronjob
 

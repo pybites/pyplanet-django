@@ -1,0 +1,30 @@
+{% extends 'articles/base.html' %}
+
+{% block content %}
+
+	{% if articles %}
+		<table class='pure-table'>
+			<thead>
+				<th>Title</th>
+			</thead>
+			<tbody>
+			{% for article in articles %}
+			  <tr>
+	             {% if article.status == 1 %}
+                   <td class='skipped'>
+	             {% elif article.status == 2 %}
+                   <td class='shared'>
+  	             {% else %}
+                   <td>
+                 {% endif %}
+                   <a href="{% url 'articles:detail' article.id %}">{{ article.title }}</a>
+                 </td>
+			  </tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	{% else %}
+		<p>No articles available.</p>
+	{% endif %}
+
+{% endblock %}

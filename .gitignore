@@ -1,0 +1,27 @@
+# Python
+
+*.py[cod]
+venv/
+__pycache__/
+
+# Packages 
+dist/
+lib/
+lib64/
+build/
+env/
+
+# NodeJS
+
+node_modules/
+bower_components/
+
+# Project specific files
+*.log
+*_secrets.json
+
+# Editor/IDE specific files
+*.sublime-*
+
+# db
+db.sqlite3

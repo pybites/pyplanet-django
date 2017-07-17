@@ -2,7 +2,7 @@
 
 ## About
 
-Last week we kicked off [100 days of Djagno](https://pybit.es/special-100days-of-code.html) and this is our first Django app!
+Last week we kicked off [100 days of Django](https://pybit.es/special-100days-of-code.html) and this is our first Django app!
 
 This app lets you import [Planet Python's feed](http://planetpython.org) into an SQLite DB. 
 

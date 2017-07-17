@@ -1,8 +1,8 @@
-# pyplanet-django 
+# PyPlanet Article Sharer Django App
 
-## about
+## About
 
-Our first Djagno App!
+Last week we kicked off [100 days of Djagno](https://pybit.es/special-100days-of-code.html) and this is our first Django app!
 
 This app lets you import [Planet Python's feed](http://planetpython.org) into an SQLite DB. 
 
@@ -22,7 +22,7 @@ You can update the article as "Shared" or "Skipped" which is updated in the DB:
 
 ![save state](assets/save-state.png)
 
-## try it yourself!
+## Try it yourself!
 
 1. clone this repo:
 

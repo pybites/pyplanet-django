@@ -14,7 +14,7 @@ TWITTER_INTENT = 'https://twitter.com/intent/tweet?'
 
 
 def index(request):
-    articles = Article.objects.order_by('-added')[:MAX_ENTRIES]
+    articles = Article.objects.order_by('-published')[:MAX_ENTRIES]
     template = loader.get_template('articles/index.html')
     context = {
         'title': 'Articles',

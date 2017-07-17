@@ -14,7 +14,7 @@ class Article(models.Model):
     title = models.CharField(max_length=300, unique=True)
     url = models.CharField(max_length=200, unique=True)
     summary = models.TextField(blank=True, null=True)
-    added = models.DateTimeField(auto_now_add=True)
+    published = models.DateTimeField(null=True)
     status = models.IntegerField(
         choices=STATUSES,
         default=OPEN,
